@@ -1616,6 +1616,12 @@ pub fn Sleep(milliseconds: u32) {
 	unsafe { ffi::Sleep(milliseconds) }
 }
 
+/// [`StartServiceCtrlDisplatcher`]
+/// function.
+pub fn StartServiceCtrlDisplatcher(table: &[SERVICE_TABLE_ENTRY]) -> SysResult<()> {
+	bool_to_sysresult(unsafe { ffi::StartServiceCtrlDispatcherW(table.as_ptr() as _) })
+}
+
 /// [`SwitchToThread`](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-switchtothread)
 /// function.
 pub fn SwitchToThread() -> SysResult<()> {

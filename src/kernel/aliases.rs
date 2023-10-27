@@ -22,3 +22,8 @@ pub type AnyResult<T> = Result<T, Box<dyn std::error::Error + Send + Sync>>;
 /// let err_result: w::AnyResult<()> = sys_result.map_err(|err| err.into());
 /// ```
 pub type SysResult<T> = Result<T, co::ERROR>;
+
+/// Type alias to
+/// [`LPSERVICE_MAIN_FUNCTIONW`](https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nc-winsvc-lpservice_main_functionw)
+pub type SERVICEMAINFUNCTION =
+    extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut *mut u16);

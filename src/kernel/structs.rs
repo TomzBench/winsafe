@@ -555,6 +555,19 @@ impl Default for SECURITY_DESCRIPTOR {
 	}
 }
 
+/// [`SERVICE_TABLE_ENTRY`](https://learn.microsoft.com/en-us/windows/win32/api/winsvc/ns-winsvc-service_table_entryw)
+/// struct.
+///
+/// The argument passed to [`StartServiceCtrlDispatcher`](crate::StartServiceCtrlDispatcher)
+#[repr(C)]
+pub struct SERVICE_TABLE_ENTRY {
+	pub lpServiceName: *mut u16,
+	pub lpServiceProc: Option<SERVICEMAINFUNCTION>
+}
+
+impl SERVICE_TABLE_ENTRY {
+}
+
 /// [`SID`](https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-sid)
 /// struct.
 ///
